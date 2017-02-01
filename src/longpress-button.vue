@@ -4,18 +4,14 @@ let timer = null;
 export default {
     name: 'longpress-button',
 
-    props: ['onConfirm', 'duration', 'pressingText', 'actionText'],
+    props: ['value', 'onConfirm', 'duration', 'pressingText', 'actionText'],
 
     created() {
-        document.addEventListener('mouseup', () => {
-            this.cancel();
-        });
+        document.addEventListener('mouseup', () => this.cancel());
     },
 
     destroyed() {
-        document.removeEventListener('mouseup', () => {
-            this.cancel();
-        });
+        document.removeEventListener('mouseup', () => this.cancel());
     },
 
     data() {
@@ -42,7 +38,9 @@ export default {
 
                     setTimeout(_ => {
                         if (this.onConfirm)
-                            this.onConfirm();
+                            this.onConfirm(this.value || null);
+                        
+                        this.reset();
                     }, 1000);
 
                     return;
@@ -50,6 +48,11 @@ export default {
 
                 this.countAndConfirm();
             }, 1000);
+        },
+
+        reset() {
+            this.status = 'default';
+            this.cancel();
         },
 
         cancel() {
@@ -77,11 +80,11 @@ export default {
 
 <template>
     <div class="longpress-button" :class="status" @mousedown="countAndConfirm()">
-        <div v-show="status === 'default'">
+        <div v-if="status === 'default'">
             <slot></slot>
         </div>
-        <span v-show="status === 'counting'">{{ countingPressingText || 'Keep pressing' }}</span>
-        <span v-show="status === 'executing'">{{ actionText || 'Please wait...' }}</span>
+        <span v-if="status === 'counting'">{{ countingPressingText || 'Keep pressing' }}</span>
+        <span v-if="status === 'executing'">{{ actionText || 'Please wait...' }}</span>
         <span class="progress-bar" :style="'animation-duration:'+duration+'s'"></span>
     </div>
 </template>
@@ -102,7 +105,7 @@ export default {
         width: 0;
         bottom: 0;
         height: 4px;
-        background: #000;
+        background: #FFF;
         opacity: 0.4;
     }
 
