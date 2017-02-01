@@ -1,5 +1,5 @@
 /*!
- *  VueLongpress plugin v1.1.0
+ *  VueLongpress plugin v1.0.0
  * 
  *  A button component that requires you to keep pressing to confirm a given action
  * 
