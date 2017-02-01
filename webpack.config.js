@@ -10,7 +10,7 @@ const banner  =
     " Released under the MIT License.";
 
 module.exports = {
-    entry: './src/index.js',
+    entry: './src/longpress-button.vue',
 
     output: {
         path: './dist/',
