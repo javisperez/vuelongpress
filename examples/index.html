@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Vuedals Example</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" />
+    <style>
+    body {
+        padding: 10px;
+    }
+    .card {
+        box-shadow: 1px 1px 10px #b1b1b1;
+        margin: 10px;
+        padding: 20px;
+        display: inline-block;
+        width: 250px;
+        font-size: 18px;
+        text-align: center;
+        transition: all 1s;
+        border-radius: 4px;
+        transform-origin: 0 50%;
+    }
+    .user-enter, .user-leave-to {
+        opacity: 0;
+        transform: scaleX(0);
+    }
+    .user-leave-active {
+        position: absolute;
+    }
+    
+    </style>
+</head>
+<body>
+    <!--[if lt IE 9]>
+        <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="#">upgrade your browser</a> to improve your experience.</p>
+    <![endif]-->
+
+    <h1>VueLongpress Example</h1>
+
+    <div id="app"></div>
+
+    <script src="https://unpkg.com/vue"></script>
+    <script src="../dist/vue-longpress.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>
