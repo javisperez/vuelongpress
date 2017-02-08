@@ -73,5 +73,5 @@ doDelete() {
 You can use these placeholders to display dynamic texts:
 
 1. {$counter} - how much time (in seconds) has ellapsed (i.e. from 0 to {$duration})
-2. {$rcounter} - how much time (in seconds) is left (i.e. from {$duration} to 0)
+2. {$rcounter} - how much time (in seconds) is remaining (i.e. from {$duration} to 0)
 3. {$duration} - how much should the user press the button in total (in seconds)
