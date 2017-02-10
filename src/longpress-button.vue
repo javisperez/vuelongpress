@@ -22,12 +22,16 @@ export default {
     },
 
     methods: {
-        countAndConfirm() {
-            if (this.status === 'executing')
+        triggerCount() {
+            if (this.status === 'executing' || this.status === 'counting')
                 return;
 
             this.status = 'counting';
 
+            this.countAndConfirm();
+        },
+
+        countAndConfirm() {
             timer = setTimeout(() => {
                 this.counter++;
 
@@ -79,12 +83,17 @@ export default {
 </script>
 
 <template>
-    <div class="longpress-button" :class="status" @mousedown="countAndConfirm()">
-        <div v-if="status === 'default'">
-            <slot></slot>
+    <div class="longpress-button" :class="status"
+        @touchend="cancel()"
+        @touchstart.prevent="triggerCount()"
+        @mouseup="cancel()"
+        @mousedown.prevent="triggerCount()">
+
+        <div>
+            <slot v-if="status === 'default'"></slot>
+            <span v-if="status === 'counting'">{{ countingPressingText || 'Keep pressing' }}</span>
+            <span v-if="status === 'executing'">{{ actionText || 'Please wait...' }}</span>
         </div>
-        <span v-if="status === 'counting'">{{ countingPressingText || 'Keep pressing' }}</span>
-        <span v-if="status === 'executing'">{{ actionText || 'Please wait...' }}</span>
         <span class="progress-bar" :style="'animation-duration:'+duration+'s'"></span>
     </div>
 </template>
