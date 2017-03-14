@@ -1,10 +1,10 @@
+## VueLongpress
+
+A VueJS (2.x) button component that requires you to keep pressing to confirm a given action.
+
 ## DEMO
 
 [Live demo on jsFiddle](https://jsfiddle.net/qr9ykxpp/)
-
-## VueLongpress
-
-A button component that requires you to keep pressing to confirm a given action.
 
 ### What is this?
 
