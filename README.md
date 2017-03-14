@@ -14,6 +14,13 @@ A component that will generate a button that requires you to keep pressing for a
 
 Think of a sensitive scenario, something like deleting a user's data, you might need to confirm for 5 seconds that you actually want to delete it, to prevent unintentional clicks
 
+## Install
+
+Install from npm:
+```js
+npm install vue-longpress --save
+```
+
 ## Example
 
 ```js
