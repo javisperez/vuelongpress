@@ -24,7 +24,7 @@ npm install vue-longpress --save
 ## Example
 
 ```js
-import {Longpress} from 'vue-longpress';
+import Longpress from 'vue-longpress';
 
 var vm = new Vue({
 	el: '#app',
