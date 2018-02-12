@@ -73,7 +73,8 @@ export default {
 
     computed: {
         countingPressingText() {
-            return this.pressingText
+            const pressingText = this.pressingText || '';
+            return pressingText
                 .replace(/\{\$counter\}/gi, this.counter)
                 .replace(/\{\$rcounter\}/gi, this.duration - this.counter)
                 .replace(/\{\$duration\}/gi, this.duration);
